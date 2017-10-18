@@ -1,0 +1,6 @@
+export const accueil = require("../Media/Images/Accueil_01.jpg")
+export const favicon = require("../Media/Images/favicon.ico")
+export const map_ground = require("../Media/Images/ground2.jpg")
+export const rose = require("../Media/Images/Compass.png")
+export const bg = require("../Media/Images/Paper.jpg")
+export const wood = require("../Media/Images/mango.jpg")
