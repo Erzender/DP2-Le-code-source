@@ -25,6 +25,7 @@ const login = (state = initialState, action) => {
           ...state,
           isFetching: false,
           didInvalidate: true,
+          error: action.param?("Serveur : " + action.param):""
         }
       case 'REGISTER_PAGE':
         return {

@@ -12,6 +12,12 @@ export const navbar = (ref, param) => ({
   param: param
 })
 
+export const root = (ref, param) => ({
+  type: 'ROOT',
+  ref: ref,
+  param: param
+})
+
 export function fetchLogin(value) {
   return function (dispatch) {
     dispatch(login('REQUESTED'))
@@ -34,7 +40,7 @@ export function fetchLogin(value) {
             dispatch(fetchInfo(json.token))
           }
           else
-            dispatch(login('FAILED'))
+            dispatch(login('FAILED', json.message))
       })
   }
 }

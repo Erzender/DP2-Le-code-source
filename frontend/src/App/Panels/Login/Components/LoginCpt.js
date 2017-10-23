@@ -32,7 +32,7 @@ class LoginCpt extends React.Component {
         <input type="text" value={this.state.value[0]} onChange={this.handleChangeLogin} style={lstyles.input} />
         <font color="white">Mot de passe</font>
         <input type="password" value={this.state.value[1]} onChange={this.handleChangePassword} style={lstyles.input} />
-        <font color="red">{this.props.error}</font>
+        <font color="red">{this.props.loading?"En attente du serveur...":this.props.error}</font>
         <div style={lstyles.button}>
           <Button type='submit' style={lstyles.button}>Connexion</Button>
           <Button style={lstyles.button} onClick={this.props.registerButton}>Inscription</Button>

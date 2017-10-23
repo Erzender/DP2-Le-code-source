@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "localforage": "^1.5.0",
+    "moment": "^2.19.1",
     "node-fetch": "^1.7.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",

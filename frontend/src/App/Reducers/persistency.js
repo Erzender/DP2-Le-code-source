@@ -26,6 +26,8 @@ const persistency = (state = initialState, action) => {
           ...state,
           character: character(state.character, action.param)
         }
+        case 'INFO_FAILED':
+          return initialState
       default:
       return state
       }

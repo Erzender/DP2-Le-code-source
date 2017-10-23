@@ -4,7 +4,7 @@ import {fetchLogin, login} from '../../../Actions'
 
 const mapStateToProps = (state) => ({
   loading: state.login.isFetching,
-  error: state.login.didInvalidate?"La connexion a échoué.":null
+  error: state.login.error
 })
 
 const mapDispatchToProps = (dispatch) => ({
