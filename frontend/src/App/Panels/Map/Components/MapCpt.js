@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import MapGridCpt from './MapGridCpt'
 
-const side=13
+const side=9
 const square=Math.round(700 / side)
 const sidel=side*square
 

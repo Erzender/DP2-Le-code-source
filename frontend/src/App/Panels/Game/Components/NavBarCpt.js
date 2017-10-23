@@ -13,8 +13,8 @@ class NavBarCpt extends React.Component {
     return (
       <div className="wood" style={{display: 'flex', height:50, marginLeft:20, marginRight:20, backgroundColor:'#black', alignItems: 'center', borderWidth: 0, borderStyle: 'solid', borderColor: '#554400', borderRadius: 15, overflow:'hidden'}}>
         <div style={{display:'flex', zIndex:400, position:'absolute', top:0, left:20, right:20, bottom:0, height:50}}>
-          <div style={{marginLeft:20}}><Character /></div>
-          <div style={{display:'flex', alignSelf:'flex-start', alignItems:'center', marginLeft:10, height:50, overflow:'auto',}}>
+          <div style={{marginLeft:30}}><Character /></div>
+          <div style={{display:'flex', alignSelf:'flex-start', alignItems:'center', marginLeft:20, height:50, overflow:'auto',}}>
             <button style={{display:'flex', height: 40, width:150, alignItems:'center', borderRadius:10, fontSize:16, backgroundColor:'black', color:'#FFFFFF'}} onClick={() => console.log('hola')}>
               <FaMap style={{display:'flex', fontSize:30, marginRight:10}} />Vue
             </button>
