@@ -1,3 +1,3 @@
 export const server = {
-  ip: 'http://localhost:8080'
+  ip: 'http://212.25.141.152:8080'
 }
