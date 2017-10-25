@@ -43,21 +43,9 @@ var apiRoutes = express.Router();
 
 //setup the database
 
-apiRoutes.get('/setup', function(req, res) {
-  var sql = "CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), password VARCHAR(255), admin TINYINT(1));"
-  con.get().query(sql, function (err, result, fields) {
-    if (err) throw err;
-    console.log("Result: " + result);
-  });
-  var salt = bcrypt.genSaltSync(10);
-  var hash = bcrypt.hashSync('admin', salt); //pour verifier mdp : bcrypt.compareSync(password, hash);
-  sql = "INSERT INTO users (name, password, admin) VALUES ('admin', '" + hash + "', TRUE)"
-  con.get().query(sql, function (err, result, fields) {
-    if (err) throw err;
-    console.log("Result: " + result);
-    res.json({ success: true, message:"Serveur configuré." });
-  });
-})
+apiRoutes.get('/setup', bigRequests.setup);
+// apiRoutes.get('/fuckup', bigRequests.fuckup);
+
 
 
 apiRoutes.post('/register', users.register);
@@ -90,7 +78,7 @@ apiRoutes.use(function(req, res, next) {
 // authenticated routes
 
 apiRoutes.get('/', function(req, res) {
-	res.json({ message: 'Welcome to the coolest API on earth!' });
+	res.json({ message: 'API' });
 });
 
 apiRoutes.get('/check', function(req, res) {
