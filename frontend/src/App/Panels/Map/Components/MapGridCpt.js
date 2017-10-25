@@ -22,7 +22,11 @@ class MapGridCpt extends React.Component {
           </div>
           <div style={{display: 'flex', flex:1}}>
             <div style={{minWidth:sidel, minHeight:sidel, maxWidth:sidel, maxHeight:sidel, borderStyle:'solid', borderColor:'#000000', borderRadius:30, borderTopRightRadius:0, overflow:'hidden', borderWidth:5, backgroundColor:'#000000'}}>
-              {tab.map((i) => <div key={i.key} style={{width: sidel, height:square}}>{i.tab.map((j) => <img className='icons' key={j} src={images.map_ground} style={{width:square, height:square}} alt="" />)}</div>)}
+              {tab.map((i) =>
+                <div key={i.key} style={{width: sidel, height:square}}>
+                  {i.tab.map((j) => <img className='icons' key={j} src={images.map_ground} style={{width:square, height:square}} alt="" />)}
+                </div>
+              )}
             </div>
           </div>
           <div style={{display:'flex', flex:1, justifyContent:'center'}}>

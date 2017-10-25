@@ -1,7 +1,7 @@
 .icons{
-    transition: all 0.2s; /*how long you want the fade to last*/
+    transition: all 0.5s; /*how long you want the fade to last*/
 }
 
 .icons:hover{
-    opacity:0.7;
+  border-radius: 20px;
 }
