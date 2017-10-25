@@ -13,6 +13,7 @@ const login = (state = initialState, action) => {
         return {
           ...state,
           isFetching: true,
+          error: "",
         }
       case 'SUCCEEDED':
         return {

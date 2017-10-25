@@ -9,7 +9,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   loginButton: (value) => {
-    console.log('hey')
     dispatch(fetchLogin(value))
   },
   registerButton: () => dispatch(login('REGISTER_PAGE'))
