@@ -12,7 +12,7 @@ exports.info = function(req, res) {
       res.json({success: true, message:'Requête ok', noCharacter: false, name: result[0].name})
     }
     else {
-      res.json({success: true, message: 'Pas de personnage', noCharacter: true})
+      res.json({success: true, message: 'Pas de personnage', noCharacter: true, name: req.decoded.name})
     }
   });
 }

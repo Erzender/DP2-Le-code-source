@@ -9,6 +9,7 @@ const initialState = {
 const character = (state, action) => {
   return {
     ...state,
+    loaded: action.loaded,
     name: action.name
   }
 }
@@ -25,7 +26,7 @@ const persistency = (state = initialState, action) => {
         if (action.param.noCharacter){
           return {
             ...state,
-            character: initialState.character
+            character: character(state, {loaded: false, name: action.param.name})
           }
         }
         return {
