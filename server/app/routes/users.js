@@ -14,14 +14,14 @@ exports.register = function(req, res) {
     return
   }
 
-  sql = "SELECT * FROM users WHERE name='" + req.body.name + "';"
-  con.get().query(sql, function(err, users) {
+  sql = "SELECT * FROM users WHERE name=?;"
+  con.get().query(sql, [req.body.name], function(err, users) {
     if (err) throw err;
     if (users.length < 1) {
       var salt = bcrypt.genSaltSync(10);
       var hash = bcrypt.hashSync(req.body.password, salt); //pour verifier mdp : bcrypt.compareSync(password, hash);
-      sql = "INSERT INTO users (name, password, admin) VALUES ('"+ req.body.name +"', '" + hash + "', FALSE)"
-      con.get().query(sql, function (err, result, fields) {
+      sql = "INSERT INTO users (name, password, admin) VALUES (?, '" + hash + "', FALSE)"
+      con.get().query(sql, [req.body.name], function (err, result, fields) {
         if (err) throw err;
         console.log('Joueur enregistré !');
   		  res.json({ success: true });
@@ -35,8 +35,8 @@ exports.register = function(req, res) {
 
 exports.authenticate = function(req, res) {
 
-  sql = "SELECT * FROM users WHERE name= '"+ req.body.name +"';"
-  con.get().query(sql, function (err, user) {
+  sql = "SELECT * FROM users WHERE name=?;"
+  con.get().query(sql, [req.body.name], function (err, user) {
 
     if (err) throw err;
 
