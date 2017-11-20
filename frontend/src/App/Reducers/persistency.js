@@ -1,6 +1,7 @@
 const initialState = {
   token: null,
   character:{
+    loaded: false,
     name: '<inconnu>'
   }
 }
@@ -8,7 +9,7 @@ const initialState = {
 const character = (state, action) => {
   return {
     ...state,
-    name: action
+    name: action.name
   }
 }
 
@@ -21,7 +22,12 @@ const persistency = (state = initialState, action) => {
           token: action.param
         }
       case 'INFO_SUCCEEDED':
-        console.log('coucou')
+        if (action.param.noCharacter){
+          return {
+            ...state,
+            character: initialState.character
+          }
+        }
         return {
           ...state,
           character: character(state.character, action.param)

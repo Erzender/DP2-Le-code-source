@@ -75,8 +75,12 @@ export function fetchInfo(token) {
   console.log('that works')
   return function (dispatch) {
     dispatch(login('INFO_REQUESTED'))
-    fetch(server.ip+'/api/info?token=' + token, {
-      method : 'GET'
+    return fetch(server.ip+'/api/info', {
+      method: 'POST', headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      },
+      body: 'token='+token
     })
     .then(function(res, error) {
         console.log(error)
@@ -85,7 +89,7 @@ export function fetchInfo(token) {
     }).then(function(json) {
         console.log(json);
         if (json.success===true){
-          dispatch(login('INFO_SUCCEEDED', json.name))
+          dispatch(login('INFO_SUCCEEDED', json))
         }
         else
           dispatch(login('INFO_FAILED', json.message))

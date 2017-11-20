@@ -44,7 +44,7 @@ var apiRoutes = express.Router();
 //setup the database
 
 apiRoutes.get('/setup', bigRequests.setup);
-// apiRoutes.get('/fuckup', bigRequests.fuckup);
+apiRoutes.get('/fuckup', bigRequests.fuckup);
 
 
 
@@ -85,7 +85,7 @@ apiRoutes.get('/check', function(req, res) {
 	res.json(req.decoded);
 });
 
-apiRoutes.get('/info', bigRequests.info)
+apiRoutes.post('/info', bigRequests.info)
 
 app.use('/api', apiRoutes);
 

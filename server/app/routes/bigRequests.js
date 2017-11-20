@@ -8,7 +8,12 @@ exports.info = function(req, res) {
   var sql = "SELECT * FROM characters WHERE id_owner="+req.decoded.id+";"
   con.get().query(sql, function (err, result, fields) {
     if (err) throw err;
-    res.json({success: true, message:'Requête ok', name: result[0].name})
+    if (result.length > 0){
+      res.json({success: true, message:'Requête ok', noCharacter: false, name: result[0].name})
+    }
+    else {
+      res.json({success: true, message: 'Pas de personnage', noCharacter: true})
+    }
   });
 }
 
@@ -36,6 +41,10 @@ exports.setup = function(req, res) {
 
 exports.fuckup = function(req, res) {
   var sql = "DROP TABLE users;"
+  con.get().query(sql, function (err, result, fields) {
+    if (err) throw err;
+  });
+  var sql = "DROP TABLE characters;"
   con.get().query(sql, function (err, result, fields) {
     if (err) throw err;
   });
